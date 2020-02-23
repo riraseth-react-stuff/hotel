@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import { wrapHistory } from 'oaf-react-router';
 import { RoomProvider } from './context';
+
+const history = createBrowserHistory(); // or createHashHistory()
+wrapHistory(history);
 
 ReactDOM.render(
   <RoomProvider>
-    <Router>
+    <Router history={history}>
       <App />
     </Router>
   </RoomProvider>,
