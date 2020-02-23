@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import Banner from '../components/Banner';
 import { Link } from 'react-router-dom';
 import { RoomContext } from '../context';
-
+import StyledHero from '../components/StyledHero';
 export default class SingleRoom extends Component {
   state = {
     slug: this.props.match.params.slug,
@@ -15,6 +15,7 @@ export default class SingleRoom extends Component {
   render() {
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
+    // the if is so we don't get error, because at first room is undefined when we refresh the page
     if (!room) {
       return (
         <div className="error">
@@ -37,13 +38,13 @@ export default class SingleRoom extends Component {
       images
     } = room;
     return (
-      <Hero hero="roomsHero">
+      <StyledHero img={images[0] || this.state.defaultBcg}>
         <Banner title={name}>
           <Link to="/rooms" className="btn-primary">
             back to rooms
           </Link>
         </Banner>
-      </Hero>
+      </StyledHero>
     );
   }
 }
