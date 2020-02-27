@@ -36,7 +36,7 @@ export default class SingleRoom extends Component {
       pets,
       images
     } = room;
-    const [mainImg, ...defaultImg] = images; // arry destructuring rest operator
+    const [mainImg, ...defaultImg] = images; // arry destructuring spread operator
     return (
       <React.Fragment>
         <StyledHero img={mainImg || this.state.defaultBcg}>
