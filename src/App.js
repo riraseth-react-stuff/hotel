@@ -12,21 +12,19 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <React.Fragment>
-      <Router>
-        <Navbar></Navbar>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route exact path="/rooms/">
-            <Rooms></Rooms>
-          </Route>
-          <Route exact path="/rooms/:slug" component={SingleRoom}></Route>
-          <Route path="*">
-            <Error></Error>
-          </Route>
-        </Switch>
-      </Router>
+      <Navbar></Navbar>
+      <Switch>
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+        <Route exact path="/rooms/">
+          <Rooms></Rooms>
+        </Route>
+        <Route exact path="/rooms/:slug" component={SingleRoom}></Route>
+        <Route path="*">
+          <Error></Error>
+        </Route>
+      </Switch>
     </React.Fragment>
   );
 }
